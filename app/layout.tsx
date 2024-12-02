@@ -2,6 +2,7 @@
 
  import { useState, useEffect } from "react"
  import { Inter } from 'next/font/google' 
+ import Header from "@/components/Header"
 
  import './globals.css'
   
@@ -20,13 +21,15 @@ export default function RootLayout({
 }) {
 
      const [sidebarOpen, setSidebarOpen] = useState(false)
-     const [totalEarns, setTotalEarns] = useState(0)
+     const [totalEarnings, setTotalEarnings] = useState(0)
 
      return (
       <html lang="en">
         <body className={inter.className}>
           <div className="min-h-screen bg -gray-50 flex flex-col">
             {/* Header */}
+            
+            <Header onMenuClick={() => setSidebarOpen(!sidebarOpen)} totalEarnings={totalEarnings} />
 
             <div className="flex flex-1">
               {/* Sidebar */}
